@@ -143,9 +143,10 @@ public class MainToDo {
 
 						String tag = JOptionPane.showInputDialog(null, "Unesite tag :", "To-Do",
 								JOptionPane.QUESTION_MESSAGE);
-
+						
 						brojac++;
 
+						System.out.println("brojac je " + brojac);
 						int redniBroj = brojac;
 
 						listaAkaunta.get(0).getListaToDo().add(kreiranjeIProvjeraToDo.kreiranjeNovogToDo(datum,
@@ -174,7 +175,12 @@ public class MainToDo {
 						break;
 
 					case 3:
-
+						if (listaAkaunta.get(0).getListaToDo().isEmpty()) {
+							
+							JOptionPane.showMessageDialog(null, "Lista je prazna, kreirajte task !", "ToDo",
+									JOptionPane.INFORMATION_MESSAGE);
+							break;
+						}
 						String ispis = kreiranjeIProvjeraAccounta.ispisListeIscitanihTaskova(iscitaniUsername,
 								listaAkaunta);
 
@@ -194,9 +200,10 @@ public class MainToDo {
 						for (int i = 0; i < listaAkaunta.get(0).getListaToDo().size(); i++) {		
 							if (listaAkaunta.get(0).getListaToDo().get(i).getTag().equalsIgnoreCase(izborTaga)) {
 								output += " " + "\n" + listaAkaunta.get(0).getListaToDo().get(i);
+								JOptionPane.showMessageDialog(null, output);
 							} 
 						}
-						JOptionPane.showMessageDialog(null, output);
+					
 						break;
 
 					case 5:
@@ -218,7 +225,7 @@ public class MainToDo {
 
 					}
 				} catch (Exception e) {
-					JOptionPane.showMessageDialog(null, "Unesite ispravan broj !", "ToDo",
+					JOptionPane.showMessageDialog(null, "Unesite ispravan podatak !", "ToDo",
 							JOptionPane.INFORMATION_MESSAGE);
 					break;
 					

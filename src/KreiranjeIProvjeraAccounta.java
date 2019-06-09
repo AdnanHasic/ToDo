@@ -29,11 +29,6 @@ public class KreiranjeIProvjeraAccounta {
  public String ispisListeIscitanihTaskova(String username, List<Account> listaAkaunta) {
 		String output = "";
 		
-		if (listaAkaunta.get(0).getListaToDo().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Lista je prazna, kreirajte task !", "ToDo",
-					JOptionPane.INFORMATION_MESSAGE);
-		}
-
 		for (int i = 0; i < listaAkaunta.get(0).getListaToDo().size(); i++) {
 
 			String pozicija0 = Integer.toString(listaAkaunta.get(0).getListaToDo().get(i).getRedniBroj());

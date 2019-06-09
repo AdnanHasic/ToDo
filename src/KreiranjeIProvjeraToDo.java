@@ -60,7 +60,6 @@ public class KreiranjeIProvjeraToDo {
 
 			listaToDo.add(noviTDo);
 		}
-
 		return listaToDo;
 	}
 

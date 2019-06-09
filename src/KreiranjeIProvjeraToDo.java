@@ -40,17 +40,22 @@ public class KreiranjeIProvjeraToDo {
 
 		List listaToDo = new ArrayList<>();
 
-		int brojac = 0;
-
 		while (MainToDo.ulazPodataka.hasNextLine()) {
-			brojac++;
+			
 			String datum = MainToDo.ulazPodataka.nextLine();
+			
 			String imeIprezime = MainToDo.ulazPodataka.nextLine();
+			
 			String brojTelefona = MainToDo.ulazPodataka.nextLine();
+			
 			VlasnikToDoItema vlasnikItema = new VlasnikToDoItema(imeIprezime, brojTelefona);
+			
 			String tekst = MainToDo.ulazPodataka.nextLine();
+			
 			String tag = MainToDo.ulazPodataka.nextLine();
+			
 			int redniBroj = Integer.parseInt(MainToDo.ulazPodataka.nextLine());
+			
 			ToDo noviTDo = new ToDo(datum, vlasnikItema, tekst, tag, redniBroj);
 
 			listaToDo.add(noviTDo);

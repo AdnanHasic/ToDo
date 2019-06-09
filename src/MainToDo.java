@@ -17,7 +17,6 @@ public class MainToDo {
 	public static Scanner ulazPodataka = new Scanner(System.in);
 
 	public static void main(String[] args) {
-
 		String broj = null;
 
 		List<Account> listaAkaunta = new ArrayList<>();
@@ -105,7 +104,6 @@ public class MainToDo {
 			listaAkaunta.add(new Account(iscitaniUsername, iscitaniPassword, listaTaskova));
 			listaAkaunta.get(0).setListaToDo(kreiranjeIProvjeraToDo.listaTOdOIscitanaIzFajla());
 
-			System.out.println(listaAkaunta.get(0).getListaToDo().toString());
 
 			do {
 
@@ -130,7 +128,6 @@ public class MainToDo {
 					switch (izborMenija) {
 
 					case 1:
-						System.out.println("lista akaunta " + listaAkaunta);
 						int brojac = 0;
 						DateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm");
 						String datum = df.format(new Date());
@@ -163,12 +160,13 @@ public class MainToDo {
 								.showInputDialog(null, "Da izbrisete task na osnovu rednog broja, upisite redni broj :",
 										"To-Do", JOptionPane.QUESTION_MESSAGE)
 								.trim());
-						System.out.println(listaAkaunta.get(0).getListaToDo().toString());
+						
 						for (int i = 0; i < listaAkaunta.get(0).getListaToDo().size(); i++) {
 							if (listaAkaunta.get(0).getListaToDo().get(i).getRedniBroj() == izborTaskaZaBrisanje) {
 								listaAkaunta.get(0).getListaToDo().remove(i);
 							}
 						}
+						
 						kreiranjeIProvjeraToDo.praznjenjeFajla(username);
 
 						punjenjeFajla(iscitaniUsername, listaAkaunta);
@@ -185,22 +183,20 @@ public class MainToDo {
 						break;
 
 					case 4:
+						
 						String output = "";
-						System.out.println(listaAkaunta.get(0).getListaToDo().toString());
+						
 						String izborTaga = JOptionPane
 								.showInputDialog(null, "Da filtrirate ispis na osnovu taga upisite tag :", "To-Do",
 										JOptionPane.QUESTION_MESSAGE)
 								.trim();
-
-						for (int i = 0; i < listaAkaunta.get(0).getListaToDo().size(); i++) {
+				
+						for (int i = 0; i < listaAkaunta.get(0).getListaToDo().size(); i++) {		
 							if (listaAkaunta.get(0).getListaToDo().get(i).getTag().equalsIgnoreCase(izborTaga)) {
 								output += " " + "\n" + listaAkaunta.get(0).getListaToDo().get(i);
-							} else {
-								output = "Ne postoji task koji sadrzi trazeni tag !";
-							}
+							} 
 						}
 						JOptionPane.showMessageDialog(null, output);
-						punjenjeFajla(iscitaniUsername, listaAkaunta);
 						break;
 
 					case 5:
@@ -241,10 +237,12 @@ public class MainToDo {
 		try {
 			PrintWriter pw = new PrintWriter(Files.newBufferedWriter(Paths.get(username.concat(".txt")),
 					StandardOpenOption.APPEND, StandardOpenOption.DSYNC));
+			
 			for (int i = 0; i < listaAkaunta.size(); i++) {
 				pw.println(listaAkaunta.get(i).getUsername());
 				pw.println(listaAkaunta.get(i).getPassword());
 			}
+			
 			for (int j = 0; j < listaAkaunta.get(0).getListaToDo().size(); j++) {
 				listaAkaunta.get(0).getListaToDo().get(j).setRedniBroj(j + 1);
 				pw.println(listaAkaunta.get(0).getListaToDo().get(j));

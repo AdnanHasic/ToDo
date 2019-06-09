@@ -9,7 +9,6 @@ import org.junit.Test;
 
 public class ToDoTest {
 
-	int brojac;
 	String datum;
 	VlasnikToDoItema nekiVlasnik;
 	String nekiTekst;

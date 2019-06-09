@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class ToDo {
     
-	private static int brojac;
 	private int redniBroj;
 	private String datum;
 	private VlasnikToDoItema vlasnik;
@@ -17,25 +16,17 @@ public class ToDo {
 	}
 
 	public ToDo(String datum, VlasnikToDoItema vlasnik, String tekst, String tag,int redniBroj) {
-        brojac++;
+  
 		DateFormat df = new SimpleDateFormat("dd-MM-yyyy hh:mm");
 		datum = df.format(new Date()).toString();
 		this.datum = datum;
 		this.vlasnik = vlasnik;
 		this.tekst = tekst;
 		this.tag = tag;
-		this.redniBroj = brojac;
+		this.redniBroj = redniBroj;
 
 	}
 
-
-	public static int getBrojac() {
-		return brojac;
-	}
-
-	public static void setBrojac(int brojac) {
-		ToDo.brojac = brojac;
-	}
 
 	public int getRedniBroj() {
 		return redniBroj;

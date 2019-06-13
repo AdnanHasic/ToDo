@@ -37,10 +37,10 @@ public class MainToDo {
 
 				String username = JOptionPane.showInputDialog(null, "Unesite username :", "To-Do",
 						JOptionPane.QUESTION_MESSAGE);
+				
+				Path putanja = Paths.get(username.concat(".txt"));
 
-				File myFile = new File(username.concat(".txt"));
-
-				if (myFile.exists()) {
+				if (Files.exists(putanja)) {
 					JOptionPane.showMessageDialog(null, "Postoji vec taj username, morate pokusati ponovo !", "ToDo",
 							JOptionPane.INFORMATION_MESSAGE);
 				}

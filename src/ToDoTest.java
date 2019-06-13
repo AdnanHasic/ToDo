@@ -74,6 +74,8 @@ public class ToDoTest {
                 ", tekst='" + "zadatak za godisnji odmor" + '\'' +
                 ", redniBroj=" +  redBr +
                 '}';
+		
+		assertEquals(expected, result);
 	}
 	
 	
